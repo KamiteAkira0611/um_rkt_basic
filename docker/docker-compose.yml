@@ -1,10 +1,13 @@
-version: '3'
+version: "3"
 services:
-  front:
-    build: .
-    container_name: um-rdk-basic
+  react:
+    build:
+      context: ../
+      dockerfile: ./docker/react/Dockerfile
+    image: um-rdk-basic-react
+    container_name: um-rdk-basic-react
+    command: yarn start
     volumes:
       - ../react/:/app
     ports:
       - "8000:3000"
-    tty: true
